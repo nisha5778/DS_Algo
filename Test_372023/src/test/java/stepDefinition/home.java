@@ -12,8 +12,8 @@ import org.testng.Assert;
 import io.cucumber.java.en.*;
 
 public class home {
-	WebDriver driver =  base.baseClassDriver;
-	String url = base.basicURL;
+	WebDriver driver =  baseClass.baseClassDriver;
+	String url = baseClass.basicURL;
 	By lnkDropdownGraph = By.xpath("//div[@class='dropdown-menu show']/a[text()='Graph']");
 	By lnkDropdownMainMenu = By.xpath("//a[text()='Data Structures']");
 	//driver.findElement(By.xpath("//button[text()='Get Started']")) WebElement btnGetStarted;
@@ -29,38 +29,6 @@ public class home {
 	By lnkDropdownStack = By.xpath("//a[contains(text(),'Stack')]");
 	By lnkRegister = By.xpath("//a[text()=' Register ']");
 	
-	//@Before
-	
-	public void LaunchBrowser() {
-		//DesiredCapabilities capabilities;
-		//capabilities = DesiredCapabilities.chrome();
-		//ChromeOptions chromeOptions = new ChromeOptions();
-		//chromeOptions.addArguments("--ignore-certifcate-errors");
-		//chromeOptions.addArguments("test-type");
-		//capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-		driver = new ChromeDriver();
-		
-		//driver = new InternetExplorerDriver();
-		//driver = new FirefoxDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
-		driver.manage().window().maximize();
-		driver.get("https://www.google.com/");
-		//PageFactory.initElements(driver, this);
-	}
-	
-	//@Before Suite
-	
-	public void CloseBrowser() {
-		//driver.close();
-	}
-	/*@Given("User Lauches Chrome Browser")
-	public void user_lauches_chrome_browser() {
-		//System.setProperty("webdriver.chrome.driver",
-		//		"C:\\Users\\manas\\Nisha_Workspace\\NishaRepositary\\Project_DSAlgo\\Drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));	
-		driver.manage().window().maximize();
-	}*/
 	
 	@When("User Opens URL {string}")
 	public void user_opens_url(String url) {
@@ -72,17 +40,6 @@ public class home {
 		driver.manage().window().maximize();	
 		PageFactory.initElements(driver, this);
 	}
-
-	/*@When("User clicks GetStarted button")
-	public void user_clicks_get_started_button() {
-	   //driver.findElement(btnGetStarted).click();
-		btnGetStarted.click();
-	}
-	
-	@Then("Open Home Page")
-	public void open_home_page() {
-	}*/
-
 	
 	@When("The login link is clicked")
 	public void the_login_link_is_clicked() {
@@ -92,12 +49,12 @@ public class home {
 	
 	@When("user enters user name")
 	public void user_enters_user_name() {
-		 driver.findElement(txtUserName).sendKeys(base.userName);
+		 driver.findElement(txtUserName).sendKeys(baseClass.userName);
 	}
 
 	@When("user enters password")
 	public void user_enters_password() {
-		driver.findElement(txtPassword).sendKeys(base.password);
+		driver.findElement(txtPassword).sendKeys(baseClass.password);
 
 	}
 
@@ -185,19 +142,5 @@ public class home {
 
 	}
 	
-	//------------------------------------------------------------------------
-	
-	@Given("The user is on Signin page of DS Algo portal")
-	public void the_user_is_on_signin_page_of_ds_algo_portal() {
-	    // Write code here that turns the phrase above into concrete actions
-	}
-	@When("The user enters valid username and password")
-	public void the_user_enters_valid_username_and_password() {
-	    // Write code here that turns the phrase above into concrete actions
-	}
-	@When("The user clicks on login button")
-	public void the_user_clicks_on_login_button() {
-	    // Write code here that turns the phrase above into concrete actions
-	}
-	
+
 }

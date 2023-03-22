@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,7 +21,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 
 public class graph7 {
-	WebDriver driver =  base.baseClassDriver;
+	WebDriver driver =  baseClass.baseClassDriver;
 	By btnGetStartedGraph = By.xpath("//h5[text()='Graph']/..//a");
 	By btnGetStarted = By.xpath("//button[text()='Get Started']");
 	By txtUserName = By.name("username");
@@ -175,8 +176,6 @@ public class graph7 {
 		Assert.assertEquals("https://dsportalapp.herokuapp.com/graph/practice", 
 				driver.getCurrentUrl());
 	}
-	   
-
 }
 	
 
