@@ -2,10 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 <test name="TestnG">
-<packages>
-<package name="runner">
-<include name = "RunnerTest.java"> </include>
-</package>
-</packages>
+<classes>
+	<class name = "runner.RunnerTest"/>
+</classes>
 </test>
 </suite> <!-- Suite -->
