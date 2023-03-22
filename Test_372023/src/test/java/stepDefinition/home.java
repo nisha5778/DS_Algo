@@ -109,7 +109,6 @@ public class home {
 	
 	@Given("The user opens DS Algo portal link")
 	public void the_user_opens_ds_algo_portal_link() {
-		
 		driver.get(url);
 		PageFactory.initElements(driver, this);
 
@@ -184,5 +183,21 @@ public class home {
 		Assert.assertEquals("https://dsportalapp.herokuapp.com/graph/",
 				driver.getCurrentUrl());
 
-}
+	}
+	
+	//------------------------------------------------------------------------
+	
+	@Given("The user is on Signin page of DS Algo portal")
+	public void the_user_is_on_signin_page_of_ds_algo_portal() {
+	    // Write code here that turns the phrase above into concrete actions
+	}
+	@When("The user enters valid username and password")
+	public void the_user_enters_valid_username_and_password() {
+	    // Write code here that turns the phrase above into concrete actions
+	}
+	@When("The user clicks on login button")
+	public void the_user_clicks_on_login_button() {
+	    // Write code here that turns the phrase above into concrete actions
+	}
+	
 }
