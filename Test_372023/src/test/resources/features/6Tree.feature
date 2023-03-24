@@ -92,3 +92,14 @@ Background: The user is on graph page
    When The user enters invalid python code in Editor
    And Clicks run button after invalid code
    Then The user gets an error message
+   
+   
+   
+   
+   @tagTree10 @tagTree
+   Scenario: The user is able to navigate to practice questions page
+   When The user clicks types of trees link on tree page
+   Then The user should be redirected to type of trees page
+   When The user clicks practice questions link
+   Then The user should be redirected to practice questions page
+   

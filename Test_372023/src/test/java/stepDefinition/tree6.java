@@ -4,18 +4,6 @@ import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-/*
-import org.openqa.selenium.Keys;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.WebElement;*/
 
 public class tree6 {
 	
@@ -33,9 +21,7 @@ public class tree6 {
 	By lnkApplicationsOfBinaryTrees = By.xpath("//a[text()='Applications of Binary trees']");
 	By lnkBinarySearchTrees = By.xpath("//a[text()='Binary Search Trees']");
 	By lnkImplementationOfBST = By.xpath("//a[text()='Implementation Of BST']");
-	
-//	By lnkTryHere = By.xpath("//a[text()='Try here>>>']");
-//  By btnRun = By.xpath("//button[text()='Run']");
+	By lnkPracticeQuestions = By.xpath("//a[text()='Practice Questions']");
 	By lnkDropdownTree = By.xpath("//div[@class='dropdown-menu show']/a[text()='Tree']");
 	By lnkDropdownMainMenu = By.xpath("//a[text()='Data Structures']");
 	
@@ -52,8 +38,6 @@ public class tree6 {
 				driver.getCurrentUrl());
 
 	}
-	
-	
 	//**********************************************************************//
 	//background
 	@Given("The user is on tree home page")
@@ -83,5 +67,25 @@ public class tree6 {
 		 Assert.assertEquals("https://dsportalapp.herokuapp.com/tree/terminologies/",
 				 driver.getCurrentUrl()); 	 
 	 }  
-	   
+	//**********************************************************************//
+	//@tagTree6-10 
+	 @When("The user clicks types of trees link on tree page")
+	 public void the_user_clicks_types_of_trees_link_on_tree_page() {
+		 driver.findElement(lnkTypesOfTrees).click();
+	 } 
+	 @Then("The user should be redirected to type of trees page")
+	 public void the_user_should_be_redirected_to_type_of_trees_page () {
+		 Assert.assertEquals("https://dsportalapp.herokuapp.com/tree/types-of-trees/",
+				 driver.getCurrentUrl()); 
+	 }
+	 @When("The user clicks practice questions link")
+	 public void the_user_clicks_practice_questions_link_on_tree_page() {
+		 driver.findElement(lnkPracticeQuestions).click();
+	 }
+	 
+	 @Then("The user should be redirected to practice questions page")
+	 public void the_user_should_be_redirected_to_practice_questions_page() {
+	 Assert.assertEquals("https://dsportalapp.herokuapp.com/tree/practice",
+			 driver.getCurrentUrl()); 	 
+	 } 
 }

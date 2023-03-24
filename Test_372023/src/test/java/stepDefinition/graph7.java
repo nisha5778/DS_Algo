@@ -80,21 +80,22 @@ public class graph7 {
 	 
 	@When("The user enters valid python code in Editor")
 	public void the_user_enters_valid_python_code_in_editor_from_sheet() throws IOException, InterruptedException{
-		EnterCode(true);
+		EnterCode(true, "PythonCode_Graph.xlsx");
 	}
 	@When("The user enters invalid python code in Editor")
 	public void the_user_enters_invalid_python_code_in_editor_from_sheet() throws IOException, InterruptedException{
-		EnterCode(false);
+		EnterCode(false, "PythonCode_Graph.xlsx");
 		List<WebElement> lst1 = driver.findElements(By.xpath("//*[@id='output']"));
 		System.out.println("size : " + lst1.size());
 		if (lst1.size() > 0 ){
 			System.out.println("output : " + lst1.get(lst1.size()-1).getText());
 		}
 	}	
-	private void EnterCode(boolean flag) throws IOException, InterruptedException {
+	private void EnterCode(boolean flag, String strFileName) throws IOException, InterruptedException {
 		String sheetName="";
 		String strCode = "";
-		String strFilePath  = System.getProperty("user.dir") + "/src/test/resources/testData//PythonCode.xlsx";
+		String strFilePath  = System.getProperty("user.dir") + 
+					"/src/test/resources/testData//" + strFileName;
 		File excelFile = new File(strFilePath);
 		FileInputStream fis = new FileInputStream(excelFile);
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
