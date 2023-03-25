@@ -20,7 +20,7 @@ import io.cucumber.junit.Cucumber;
 			//plugin = {"json:target/testResult2.json"},
 			//dryRun = false,
 			monochrome=false,  //console output color
-			tags = "@tagTree",
+			//tags = "@tagTree",
 			//tags = "@tagGraph1 or @tagGraph2 or @tagGraph3", //tags from feature file
 			//tags = "@Tag1",
 			//tags = "@TS_001 or @TS_003 or @TS_002",

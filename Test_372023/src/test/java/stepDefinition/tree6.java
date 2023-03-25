@@ -1,13 +1,18 @@
 package stepDefinition;
 
 import io.cucumber.java.en.*;
+
+import java.io.IOException;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class tree6 {
 	
-	WebDriver driver =  baseClass.baseClassDriver;
+	static WebDriver driver =  baseClass.baseClassDriver;
 	By lnkOverviewOfTrees = By.xpath("//a[text()='Overview of Trees']");
 	By lnkTerminologies = By.xpath("//a[text()='Terminologies']");
 	By lnkTypesOfTrees = By.xpath("//a[text()='Types of Trees']");
@@ -36,7 +41,6 @@ public class tree6 {
 		System.out.println("Title : " + driver.getCurrentUrl());
 		Assert.assertEquals("https://dsportalapp.herokuapp.com/tree/",
 				driver.getCurrentUrl());
-
 	}
 	//**********************************************************************//
 	//background
@@ -45,6 +49,22 @@ public class tree6 {
 		//driver.get("");	
 		driver.get("https://dsportalapp.herokuapp.com/tree/");
 	 }	
+	
+	
+	@When("The user enters valid python code in Editor from tree page")
+	public void the_user_enters_valid_python_code_in_editor_from_tree_page() throws IOException, InterruptedException{
+		commonCode.EnterCode(true, "PythonCode_Tree.xlsx");
+	}
+	@When("The user enters invalid python code in Editor from tree page")
+	public void the_user_enters_invalid_python_code_in_editor_from_tree_page() throws IOException, InterruptedException{
+		commonCode.EnterCode(false, "PythonCode_Tree.xlsx");
+		List<WebElement> lst1 = driver.findElements(By.xpath("//*[@id='output']"));
+		System.out.println("size : " + lst1.size());
+		if (lst1.size() > 0 ){
+			System.out.println("output : " + lst1.get(lst1.size()-1).getText());
+		}
+	}
+	
 	//**********************************************************************//
 	//@tagTree2-5
 	 @When("The user clicks overview of trees link on tree page")
@@ -83,7 +103,7 @@ public class tree6 {
 		 driver.findElement(lnkPracticeQuestions).click();
 	 }
 	 
-	 @Then("The user should be redirected to practice questions page")
+	 @Then("The user should be redirected to tree practice questions page")
 	 public void the_user_should_be_redirected_to_practice_questions_page() {
 	 Assert.assertEquals("https://dsportalapp.herokuapp.com/tree/practice",
 			 driver.getCurrentUrl()); 	 

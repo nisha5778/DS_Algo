@@ -1,4 +1,4 @@
-@Tag1
+
 Feature: Title of your feature
   I want to use this template for my feature file
 
@@ -45,9 +45,3 @@ Feature: Title of your feature
   And user enters password
   Then click on login button
   
-  @Tag1
- 	 Scenario: The user is able to navigate to Graph Data Structure page
-   Given The user is on the Home Page
-   When The user clicks the graph item from the drop down menu
-   Then The user should be redirected to Graph page
-   
